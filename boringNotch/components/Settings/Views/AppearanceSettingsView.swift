@@ -71,6 +71,11 @@ struct AppearanceSettingsView: View {
                 Defaults.Toggle(key: .showNotHumanFace) {
                     Text("Show cool face animation while inactive")
                 }
+                // Covers the notch with a full-width black bar; takes effect
+                // immediately, the manager observes the key.
+                Defaults.Toggle(key: .hideNotch) {
+                    Text("Hide notch")
+                }
             } header: {
                 HStack {
                     Text("Additional features")

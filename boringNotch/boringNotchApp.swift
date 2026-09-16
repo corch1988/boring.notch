@@ -279,6 +279,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         windowManager.prepareInitialWindows()
 
+        // After the notch windows exist: the bar draws below them and must not
+        // claim the strip first. Starting it also subscribes to `hideNotch` and to
+        // screen changes, so it stays a no-op until the setting is turned on.
+        NotchBarWindowManager.shared.start()
+
         if coordinator.firstLaunch {
             DispatchQueue.main.async {
                 self.showOnboardingWindow()

@@ -57,6 +57,7 @@
 		1194E87C2EA19E09009C82D6 /* ImageProcessingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194E87B2EA19E09009C82D6 /* ImageProcessingService.swift */; };
 		1194E8852EA57D23009C82D6 /* SkyLightWindow in Frameworks */ = {isa = PBXBuildFile; productRef = 1194E8842EA57D23009C82D6 /* SkyLightWindow */; };
 		1194E8872EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194E8862EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift */; };
+		D7A1B0022F0000010000AA02 /* NotchBarWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1B0012F0000010000AA01 /* NotchBarWindow.swift */; };
 		1194E9402EACC652009C82D6 /* Color+AccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194E93F2EACC652009C82D6 /* Color+AccentColor.swift */; };
 		11985BE02F37A3C800F81585 /* BetterDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11985BDC2F37A3C800F81585 /* BetterDisplayManager.swift */; };
 		11985BE22F37A3C800F81585 /* LunarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11985BDE2F37A3C800F81585 /* LunarManager.swift */; };
@@ -265,6 +266,7 @@
 		118EBE3A2E9720C500D54B5A /* ShelfStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfStateViewModel.swift; sourceTree = "<group>"; };
 		1194E87B2EA19E09009C82D6 /* ImageProcessingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessingService.swift; sourceTree = "<group>"; };
 		1194E8862EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringNotchSkyLightWindow.swift; sourceTree = "<group>"; };
+		D7A1B0012F0000010000AA01 /* NotchBarWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchBarWindow.swift; sourceTree = "<group>"; };
 		1194E93F2EACC652009C82D6 /* Color+AccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AccentColor.swift"; sourceTree = "<group>"; };
 		11985BDC2F37A3C800F81585 /* BetterDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterDisplayManager.swift; sourceTree = "<group>"; };
 		11985BDE2F37A3C800F81585 /* LunarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarManager.swift; sourceTree = "<group>"; };
@@ -881,6 +883,7 @@
 				AA06CHV22E7A0001 /* CompactHomeView.swift */,
 				AA04LAS22E7A0001 /* LiveActivityStack.swift */,
 				1194E8862EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift */,
+				D7A1B0012F0000010000AA01 /* NotchBarWindow.swift */,
 				1160F8D72DD98230006FBB94 /* NotchShape.swift */,
 				9AB0C6BB2C73C9CB00F7CD30 /* NotchHomeView.swift */,
 				14D570C52C5F38210011E668 /* BoringHeader.swift */,
@@ -1121,6 +1124,7 @@
 				B1D365D02C6A9A6C0047BDBC /* SystemEventIndicatorModifier.swift in Sources */,
 				1194E87C2EA19E09009C82D6 /* ImageProcessingService.swift in Sources */,
 				1194E8872EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift in Sources */,
+				D7A1B0022F0000010000AA02 /* NotchBarWindow.swift in Sources */,
 				14D570CB2C5F4B2C0011E668 /* BatteryStatusViewModel.swift in Sources */,
 				A7F4A06476BC4B029B6BECEA /* NotchUIEvent.swift in Sources */,
 				9A0887322C7A693000C160EA /* TabButton.swift in Sources */,

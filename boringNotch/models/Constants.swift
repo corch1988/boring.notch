@@ -300,6 +300,11 @@ extension Defaults.Keys {
     static let enableShadow = Key<Bool>("enableShadow", default: true)
     static let cornerRadiusScaling = Key<Bool>("cornerRadiusScaling", default: true)
 
+    /// Draws a black bar across the whole menu-bar strip on notched displays,
+    /// so the notch stops standing out. Owned by `NotchBarWindowManager`;
+    /// unrelated to `hideNotchOption`, which hides the notch UI during media playback.
+    static let hideNotch = Key<Bool>("hideNotch", default: false)
+
     static let showNotHumanFace = Key<Bool>("showNotHumanFace", default: false)
     static let tileShowLabels = Key<Bool>("tileShowLabels", default: false)
     static let showCalendar = Key<Bool>("showCalendar", default: false)

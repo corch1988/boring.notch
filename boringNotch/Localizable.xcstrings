@@ -1,111 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Play" : {
-
-    },
-    "Pause" : {
-
-    },
-    "Add to Favorites" : {
-
-    },
-    "Remove from Favorites" : {
-
-    },
-    "Rename File" : {
-
-    },
-    "Rename" : {
-
-    },
-    " (default)" : {
-
-    },
-    "Actual Size" : {
-
-    },
-    "All Applications" : {
-
-    },
-    "Always Open With" : {
-
-    },
-    "Audio output" : {
-
-    },
-    "Backward 15s" : {
-
-    },
-    "Choose Application" : {
-
-    },
-    "Choose an application to open the document \"%@\"." : {
-
-    },
-    "Compression:" : {
-
-    },
-    "Convert" : {
-
-    },
-    "Convert Image" : {
-
-    },
-    "Custom..." : {
-
-    },
-    "Empty slot" : {
-
-    },
-    "Enable:" : {
-
-    },
-    "Favorite" : {
-
-    },
-    "Format:" : {
-
-    },
-    "Forward 15s" : {
-
-    },
-    "Image Size:" : {
-
-    },
-    "Large" : {
-
-    },
-    "Next" : {
-
-    },
-    "OK" : {
-
-    },
-    "Play/Pause" : {
-
-    },
-    "Preserve Metadata" : {
-
-    },
-    "Previous" : {
-
-    },
-    "Recommended Applications" : {
-
-    },
-    "Repeat" : {
-
-    },
-    "Shuffle" : {
-
-    },
-    "Small" : {
-
-    },
-    "e.g., 1920" : {
-
-    },
     "" : {
       "localizations" : {
         "en" : {
@@ -115,6 +10,9 @@
           }
         }
       }
+    },
+    " (default)" : {
+
     },
     "'Now Playing' was the only option on previous versions and works with all media apps." : {
       "localizations" : {
@@ -784,6 +682,9 @@
         }
       }
     },
+    "Actual Size" : {
+
+    },
     "Add" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1022,6 +923,9 @@
         }
       }
     },
+    "Add to Favorites" : {
+
+    },
     "Additional features" : {
       "localizations" : {
         "cs" : {
@@ -1251,6 +1155,9 @@
           }
         }
       }
+    },
+    "All Applications" : {
+
     },
     "All-day" : {
       "localizations" : {
@@ -1487,6 +1394,9 @@
           }
         }
       }
+    },
+    "Always Open With" : {
+
     },
     "Always show full event titles" : {
       "localizations" : {
@@ -2057,6 +1967,9 @@
           }
         }
       }
+    },
+    "Audio output" : {
+
     },
     "Auto-scroll to next event" : {
       "localizations" : {
@@ -2692,6 +2605,9 @@
           }
         }
       }
+    },
+    "Backward 15s" : {
+
     },
     "Battery" : {
       "localizations" : {
@@ -3401,29 +3317,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Boring Notch'un Şu An Çalınan bileşenleri şu anda kullanılamıyor. Uygulamayı yeniden açın ya da tekrar yükleyin."
-          }
-        }
-      }
-    },
-    "Could not verify Now Playing" : {
-      "comment" : "Title of the passive notice shown when the Now Playing availability probe fails.",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could not verify Now Playing"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Não foi possível verificar o Reproduzindo Agora"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Şu An Çalınan içerik doğrulanamadı"
           }
         }
       }
@@ -5039,6 +4932,9 @@
         }
       }
     },
+    "Choose an application to open the document \"%@\"." : {
+
+    },
     "Choose any color" : {
       "localizations" : {
         "de" : {
@@ -5150,6 +5046,9 @@
           }
         }
       }
+    },
+    "Choose Application" : {
+
     },
     "Choose between your system accent color or customize it with your own selection." : {
       "localizations" : {
@@ -6313,6 +6212,31 @@
         }
       }
     },
+    "Compact mode" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode compact"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo compacto"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kompakt mod"
+          }
+        }
+      }
+    },
+    "Compression:" : {
+
+    },
     "Connects directly to the Apple Music app." : {
       "comment" : "Onboarding description of the Apple Music source.",
       "localizations" : {
@@ -6355,28 +6279,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Doğrudan Spotify uygulamasına bağlanır."
-          }
-        }
-      }
-    },
-    "Compact mode" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mode compact"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modo compacto"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kompakt mod"
           }
         }
       }
@@ -6617,6 +6519,12 @@
         }
       }
     },
+    "Convert" : {
+
+    },
+    "Convert Image" : {
+
+    },
     "Copied" : {
       "localizations" : {
         "fr" : {
@@ -6779,6 +6687,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toplantı Bağlantısını Kopyala"
+          }
+        }
+      }
+    },
+    "Could not verify Now Playing" : {
+      "comment" : "Title of the passive notice shown when the Now Playing availability probe fails.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not verify Now Playing"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível verificar o Reproduzindo Agora"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu An Çalınan içerik doğrulanamadı"
           }
         }
       }
@@ -7148,6 +7079,9 @@
         }
       }
     },
+    "Custom..." : {
+
+    },
     "Customize in Settings" : {
       "localizations" : {
         "cs" : {
@@ -7489,6 +7423,9 @@
           }
         }
       }
+    },
+    "Delivery unconfirmed. Your reply may still send — check Messages before sending it again." : {
+
     },
     "Description" : {
       "extractionState" : "stale",
@@ -8502,6 +8439,9 @@
         }
       }
     },
+    "e.g., 1920" : {
+
+    },
     "Edit layout" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -8620,6 +8560,9 @@
           }
         }
       }
+    },
+    "Empty slot" : {
+
     },
     "Enable blur effect behind album art" : {
       "localizations" : {
@@ -9500,6 +9443,9 @@
         }
       }
     },
+    "Enable:" : {
+
+    },
     "Enjoy your free time!" : {
       "localizations" : {
         "cs" : {
@@ -9971,6 +9917,9 @@
         }
       }
     },
+    "Favorite" : {
+
+    },
     "Files dropped on the shelf will be shared via this service" : {
       "localizations" : {
         "de" : {
@@ -10217,6 +10166,12 @@
           }
         }
       }
+    },
+    "Format:" : {
+
+    },
+    "Forward 15s" : {
+
     },
     "Frame shape" : {
       "comment" : "A label for the shape of the mirror frame.",
@@ -11864,6 +11819,22 @@
         }
       }
     },
+    "Hide notch" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notch verstecken"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide Notch"
+          }
+        }
+      }
+    },
     "Hide title bar" : {
       "localizations" : {
         "de" : {
@@ -12415,6 +12386,9 @@
           }
         }
       }
+    },
+    "Image Size:" : {
+
     },
     "In progress" : {
       "extractionState" : "stale",
@@ -13126,6 +13100,9 @@
           }
         }
       }
+    },
+    "Large" : {
+
     },
     "Later" : {
       "localizations" : {
@@ -16000,6 +15977,9 @@
         }
       }
     },
+    "Next" : {
+
+    },
     "No events" : {
       "localizations" : {
         "cs" : {
@@ -17300,6 +17280,9 @@
           }
         }
       }
+    },
+    "OK" : {
+
     },
     "Only these apps show a live activity in the notch. Turn on \"From all apps\" to mirror everything instead." : {
       "localizations" : {
@@ -18639,6 +18622,9 @@
         }
       }
     },
+    "Pause" : {
+
+    },
     "PDF Creation Failed" : {
       "localizations" : {
         "pt-BR" : {
@@ -18760,6 +18746,12 @@
           }
         }
       }
+    },
+    "Play" : {
+
+    },
+    "Play/Pause" : {
+
     },
     "Player tinting" : {
       "localizations" : {
@@ -19088,6 +19080,12 @@
           }
         }
       }
+    },
+    "Preserve Metadata" : {
+
+    },
+    "Previous" : {
+
     },
     "Progress bar style" : {
       "extractionState" : "stale",
@@ -19690,6 +19688,9 @@
         }
       }
     },
+    "Recommended Applications" : {
+
+    },
     "Release name" : {
       "localizations" : {
         "cs" : {
@@ -20162,6 +20163,9 @@
         }
       }
     },
+    "Remove from Favorites" : {
+
+    },
     "Remove from shelf after dragging" : {
       "localizations" : {
         "de" : {
@@ -20261,6 +20265,15 @@
           }
         }
       }
+    },
+    "Rename" : {
+
+    },
+    "Rename File" : {
+
+    },
+    "Repeat" : {
+
     },
     "Replace System OSD" : {
       "localizations" : {
@@ -25677,6 +25690,9 @@
         }
       }
     },
+    "Shuffle" : {
+
+    },
     "Slider color" : {
       "localizations" : {
         "cs" : {
@@ -26073,6 +26089,9 @@
           }
         }
       }
+    },
+    "Small" : {
+
     },
     "Sneak Peek shows the media title and artist under the notch for a few seconds." : {
       "localizations" : {
