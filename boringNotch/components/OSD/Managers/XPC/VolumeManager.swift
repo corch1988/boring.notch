@@ -324,36 +324,64 @@ final class VolumeManager: NSObject, ObservableObject {
             && sizeNeeded == UInt32(MemoryLayout<UInt32>.size)
     }
 
-    private func readVolumeLocked() -> Float32? {
-        var collected: [Float32] = []
-        for element in snapshot.volumeElements {
-            var addr = AudioObjectPropertyAddress(
-                mSelector: kAudioDevicePropertyVolumeScalar,
-                mScope: kAudioDevicePropertyScopeOutput,
-                mElement: element
-            )
-            var vol = Float32(0)
-            var size = UInt32(MemoryLayout<Float32>.size)
-            if AudioObjectGetPropertyData(snapshot.deviceID, &addr, 0, nil, &size, &vol) == noErr {
-                collected.append(vol)
-            }
+    private func readScalarLocked(element: UInt32) -> Float32? {
+        var addr = AudioObjectPropertyAddress(
+            mSelector: kAudioDevicePropertyVolumeScalar,
+            mScope: kAudioDevicePropertyScopeOutput,
+            mElement: element
+        )
+        var vol = Float32(0)
+        var size = UInt32(MemoryLayout<Float32>.size)
+        guard AudioObjectGetPropertyData(snapshot.deviceID, &addr, 0, nil, &size, &vol) == noErr
+        else { return nil }
+        return max(0, min(1, vol))
+    }
+
+    private func writeScalarLocked(_ value: Float32, element: UInt32) {
+        var addr = AudioObjectPropertyAddress(
+            mSelector: kAudioDevicePropertyVolumeScalar,
+            mScope: kAudioDevicePropertyScopeOutput,
+            mElement: element
+        )
+        var val = max(0, min(1, value))
+        AudioObjectSetPropertyData(
+            snapshot.deviceID, &addr, 0, nil, UInt32(MemoryLayout<Float32>.size), &val)
+    }
+
+    /// Per-channel levels that hit `target` as their loudest channel while
+    /// keeping the channels' relative ratios — i.e. the user's L/R balance.
+    /// Once a channel has been driven to 0 its ratio is unrecoverable, so a
+    /// silent set falls back to uniform levels.
+    static func balancedLevels(target: Float32, current: [Float32]) -> [Float32] {
+        guard let peak = current.max(), peak > 0.0001 else {
+            return current.map { _ in target }
         }
-        guard !collected.isEmpty else { return nil }
-        return max(0, min(1, collected.reduce(0, +) / Float32(collected.count)))
+        return current.map { max(0, min(1, target * ($0 / peak))) }
+    }
+
+    private func readVolumeLocked() -> Float32? {
+        // A device with a master element reports and accepts one value; using
+        // the per-channel scalars there would average the balance away.
+        if snapshot.volumeElements.contains(kAudioObjectPropertyElementMain) {
+            return readScalarLocked(element: kAudioObjectPropertyElementMain)
+        }
+        let collected = snapshot.volumeElements.compactMap { readScalarLocked(element: $0) }
+        guard let peak = collected.max() else { return nil }
+        return peak
     }
 
     private func writeVolumeLocked(_ value: Float32) {
         guard snapshot.deviceID != kAudioObjectUnknown else { return }
         let newVal = max(0, min(1, value))
-        for element in snapshot.volumeElements {
-            var addr = AudioObjectPropertyAddress(
-                mSelector: kAudioDevicePropertyVolumeScalar,
-                mScope: kAudioDevicePropertyScopeOutput,
-                mElement: element
-            )
-            var val = newVal
-            AudioObjectSetPropertyData(
-                snapshot.deviceID, &addr, 0, nil, UInt32(MemoryLayout<Float32>.size), &val)
+        if snapshot.volumeElements.contains(kAudioObjectPropertyElementMain) {
+            writeScalarLocked(newVal, element: kAudioObjectPropertyElementMain)
+            return
+        }
+        let current = snapshot.volumeElements.map { readScalarLocked(element: $0) ?? 0 }
+        for (element, level) in zip(
+            snapshot.volumeElements, Self.balancedLevels(target: newVal, current: current))
+        {
+            writeScalarLocked(level, element: element)
         }
     }
 
