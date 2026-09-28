@@ -327,6 +327,11 @@ extension Defaults.Keys {
     static let enableSneakPeek = Key<Bool>("enableSneakPeek", default: false)
     static let sneakPeekStyles = Key<SneakPeekStyle>("sneakPeekStyles", default: .standard)
     static let waitInterval = Key<Double>("waitInterval", default: 3)
+    static let musicLiveActivityOnAllDisplays = Key<Bool>(
+        "musicLiveActivityOnAllDisplays", default: true)
+    /// nil means "whichever display the notch itself is on".
+    static let musicLiveActivityScreenUUID = Key<String?>(
+        "musicLiveActivityScreenUUID", default: nil)
     static let showShuffleAndRepeat = Key<Bool>("showShuffleAndRepeat", default: false)
     static let enableLyrics = Key<Bool>("enableLyrics", default: false)
     static let musicControlSlots = Key<[MusicControlButton]>(

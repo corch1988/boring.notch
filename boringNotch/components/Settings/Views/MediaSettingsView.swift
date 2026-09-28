@@ -16,7 +16,14 @@ struct MediaSettingsView: View {
     @Default(.sneakPeekStyles) var sneakPeekStyles
 
     @Default(.enableLyrics) var enableLyrics
+    @Default(.musicLiveActivityOnAllDisplays) var musicLiveActivityOnAllDisplays
+    @Default(.musicLiveActivityScreenUUID) var musicLiveActivityScreenUUID
     @ObservedObject private var musicManager = MusicManager.shared
+
+    @State private var screens: [(uuid: String, name: String)] = NSScreen.screens.compactMap { screen in
+        guard let uuid = screen.displayUUID else { return nil }
+        return (uuid, screen.localizedName)
+    }
 
     var body: some View {
         Form {
@@ -83,6 +90,25 @@ struct MediaSettingsView: View {
                         HideNotchOption.nowPlayingOnly)
                     Text("Never hide").tag(HideNotchOption.never)
                 }
+                Defaults.Toggle(key: .musicLiveActivityOnAllDisplays) {
+                    Text("Show on all displays")
+                }
+                Picker(
+                    "Display for live activity",
+                    selection: $musicLiveActivityScreenUUID
+                ) {
+                    Text("Follow the notch").tag(String?.none)
+                    ForEach(screens, id: \.uuid) { screen in
+                        Text(screen.name).tag(screen.uuid as String?)
+                    }
+                }
+                .onChange(of: NSScreen.screens) {
+                    screens = NSScreen.screens.compactMap { screen in
+                        guard let uuid = screen.displayUUID else { return nil }
+                        return (uuid, screen.localizedName)
+                    }
+                }
+                .disabled(musicLiveActivityOnAllDisplays)
             } header: {
                 Text("Media playback live activity")
             }

@@ -40,6 +40,10 @@ struct ContentView: View {
     @Namespace var albumArtNamespace
 
     @Default(.showNotHumanFace) var showNotHumanFace
+    // Observed so the notch redraws when the live-activity display pick changes;
+    // musicLiveActivityAllowed(onScreen:) reads them through Defaults.
+    @Default(.musicLiveActivityOnAllDisplays) var musicLiveActivityOnAllDisplays
+    @Default(.musicLiveActivityScreenUUID) var musicLiveActivityScreenUUID
 
     // Use standardized animations from StandardAnimations enum
     private let animationSpring = StandardAnimations.interactive
@@ -109,6 +113,7 @@ struct ContentView: View {
         let musicIsShowing = (!coordinator.expandingView.show || coordinator.expandingView.type == .music)
             && (musicManager.isPlaying || !musicManager.isPlayerIdle)
             && coordinator.musicLiveActivityEnabled
+            && coordinator.musicLiveActivityAllowed(onScreen: vm.screenUUID)
         if musicIsShowing {
             items.append(.music)
         }
@@ -1002,7 +1007,9 @@ struct ContentView: View {
                 return false
             }
 
-            return coordinator.musicLiveActivityEnabled && (musicManager.isPlaying || !musicManager.isPlayerIdle)
+            return coordinator.musicLiveActivityEnabled
+                && coordinator.musicLiveActivityAllowed(onScreen: vm.screenUUID)
+                && (musicManager.isPlaying || !musicManager.isPlayerIdle)
 
         case .open:
             return coordinator.currentView == .home && !musicManager.isPlayerIdle && isHoveringMusicArea

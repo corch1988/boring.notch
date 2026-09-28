@@ -87,6 +87,17 @@ final class BoringViewCoordinator: ObservableObject {
 
     @Published var selectedScreenUUID: String = NSScreen.main?.displayUUID ?? ""
 
+    /// The music live activity can be pinned to one display while the notch
+    /// itself still shows on all of them; every other notch window then leaves
+    /// the music slot empty. `screenUUID == nil` is the single-window case, so
+    /// there is nothing to restrict.
+    func musicLiveActivityAllowed(onScreen screenUUID: String?) -> Bool {
+        guard !Defaults[.musicLiveActivityOnAllDisplays] else { return true }
+        guard let screenUUID else { return true }
+        // No explicit pick yet: follow whichever display the notch is on.
+        return screenUUID == (Defaults[.musicLiveActivityScreenUUID] ?? selectedScreenUUID)
+    }
+
     @Published var optionKeyPressed: Bool = true
     private var accessibilityObserver: Any?
     private var osdReplacementCancellable: AnyCancellable?
