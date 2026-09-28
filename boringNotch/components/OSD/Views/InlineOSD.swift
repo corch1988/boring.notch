@@ -28,7 +28,7 @@ struct InlineOSD: View {
                     .allowsTightening(true)
                     .contentTransition(.numericText())
             }
-            .frame(width: 100 - (hoverAnimation ? 0 : 12) + gestureProgress / 2, height: vm.notchSize.height - (hoverAnimation ? 0 : 12), alignment: .leading)
+            .frame(width: 100 - (hoverAnimation ? 0 : 12) + gestureProgress / 2, height: vm.closedActivityHeight - (hoverAnimation ? 0 : 12), alignment: .leading)
             
             Rectangle()
                 .fill(.black)
@@ -74,9 +74,9 @@ struct InlineOSD: View {
                 }
             }
             .padding(.trailing, 4)
-            .frame(width: 100 - (hoverAnimation ? 0 : 12) + gestureProgress / 2, height: vm.closedNotchSize.height - (hoverAnimation ? 0 : 12), alignment: .center)
+            .frame(width: 100 - (hoverAnimation ? 0 : 12) + gestureProgress / 2, height: vm.closedActivityHeight - (hoverAnimation ? 0 : 12), alignment: .center)
         }
-        .frame(height: vm.closedNotchSize.height + (hoverAnimation ? 8 : 0), alignment: .center)
+        .frame(height: vm.closedActivityHeight + (hoverAnimation ? 8 : 0), alignment: .center)
     }
     
     func osdTypeName(_ type: SneakContentType) -> String {

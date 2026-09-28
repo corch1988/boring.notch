@@ -96,10 +96,25 @@ final class BoringViewModel: NSObject, ObservableObject {
         return noNotchAndFullscreen ? 0 : closedNotchSize.height
     }
 
-    /// Whether the current screen has a notch (safe area top inset > 0)
-    var hasNotch: Bool {
-        let currentScreen = screenUUID.flatMap { NSScreen.screen(withUUID: $0) } ?? NSScreen.main
-        return (currentScreen?.safeAreaInsets.top ?? 0) > 0
+    /// Whether the closed notch should be invisible. A configured height of 0
+    /// means "gone while idle" — but a sneak peek (the OSD) is the one thing
+    /// the user just asked to see, so it overrides that. Hiding for a
+    /// fullscreen app is deliberate and stays hidden.
+    var isClosedNotchHidden: Bool {
+        guard effectiveClosedNotchHeight == 0 else { return false }
+        let zeroByConfiguration = closedNotchSize.height == 0
+        return !(zeroByConfiguration && coordinator.shouldShowSneakPeek(on: screenUUID))
+    }
+
+    /// Height for content drawn *inside* the closed notch — never 0, because a
+    /// configured height of 0 still has to leave an OSD readable. Not the
+    /// height of the notch itself: the idle placeholder stays collapsed so the
+    /// OSD doesn't get an empty block stacked on top of it.
+    var closedActivityHeight: CGFloat {
+        guard effectiveClosedNotchHeight == 0 else { return effectiveClosedNotchHeight }
+        // A shade shallower than the menu bar it sits on: exactly covering the
+        // bar reads as a glitch, a little less reads as its own strip.
+        return max(18, getMenuBarHeight(hasNotch: false) - 6)
     }
 
     var chinHeight: CGFloat {

@@ -52,8 +52,14 @@ struct ContentView: View {
     private let zeroHeightHoverPadding: CGFloat = 10
     private let nowPlayingFallbackNoticeWidth: CGFloat = 330
 
+    /// True while an OSD is borrowing a notch that's configured to height 0.
+    private var isBorrowedOSD: Bool { isNotchHeightZero && !vm.isClosedNotchHidden }
+
     // MARK: - Corner Radius Scaling
     private var cornerRadiusScaleFactor: CGFloat? {
+        // A borrowed OSD is a floating strip, not a notch stub — scaling the
+        // radii down by its 10pt placeholder height would square it off.
+        guard !isBorrowedOSD else { return nil }
         guard Defaults[.cornerRadiusScaling] else { return nil }
         let effectiveHeight = displayClosedNotchHeight
         guard effectiveHeight > 0 else { return nil }
@@ -251,7 +257,7 @@ struct ContentView: View {
                             ? .black.opacity(0.7) : .clear, radius: 6
                     )
                     // Removed conditional bottom padding when using custom 0 notch to keep layout stable
-                    .opacity((isNotchHeightZero && vm.notchState == .closed) ? 0.01 : 1)
+                    .opacity((vm.isClosedNotchHidden && vm.notchState == .closed) ? 0.01 : 1)
                 
                 mainLayout
                     // alignment: .top matters here — without it this frame
@@ -504,10 +510,11 @@ struct ContentView: View {
                                .frame(height: max(24, displayClosedNotchHeight))
                                .opacity(gestureProgress != 0 ? 1.0 - min(abs(gestureProgress) * 0.1, 0.3) : 1.0)
                        }
-                        // New case to enable compact notch on external displays
-                        else if !vm.hasNotch {
-                           Rectangle().fill(.clear).frame(width: vm.closedNotchSize.width - 20, height: 11) // idle notch height is halved on non notch display
-                       } else {
+                        // ponytail: no separate non-notch branch — the idle
+                        // spacer honours the configured height on every
+                        // display, which is what "Notch height on non-notch
+                        // displays" is supposed to control.
+                        else {
                            Rectangle().fill(.clear).frame(width: vm.closedNotchSize.width - 20, height: displayClosedNotchHeight)
                        }
 
