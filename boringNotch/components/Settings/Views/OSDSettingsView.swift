@@ -12,6 +12,7 @@ import CoreGraphics
 struct OSDSettings: View {
     // Defaults-backed storage
     @Default(.osdReplacement) private var osdReplacementDefault
+    @Default(.showOnAllDisplays) private var showOnAllDisplays
     @Default(.showOpenNotchOSD) private var showOpenNotchOSDDefault
     @Default(.optionKeyAction) private var optionKeyActionDefault
     @Default(.osdBrightnessSource) private var osdBrightnessSourceDefault
@@ -29,6 +30,12 @@ struct OSDSettings: View {
                 if osdReplacementDefault {
                     Defaults.Toggle(key: .inlineOSD) {
                         Text("Use inline style")
+                    }
+                    if showOnAllDisplays {
+                        Defaults.Toggle(key: .osdOnActiveDisplayOnly) {
+                            Text("Show only on active display")
+                        }
+                        HelpText("The OSD appears only on the display that currently has keyboard focus instead of on every notch.")
                     }
                 }
             }

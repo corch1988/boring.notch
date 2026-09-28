@@ -359,6 +359,9 @@ extension Defaults.Keys {
     // MARK: OSD
     static let osdReplacement = Key<Bool>(PreferenceCompatibility.migratedKeyName("osdReplacement", from: "hudReplacement"), default: false)
     static let inlineOSD = Key<Bool>(PreferenceCompatibility.migratedKeyName("inlineOSD", from: "inlineHUD"), default: false)
+    /// With `showOnAllDisplays` every notch mirrors the OSD. When this is on,
+    /// only the display holding keyboard focus (`NSScreen.main`) shows it.
+    static let osdOnActiveDisplayOnly = Key<Bool>("osdOnActiveDisplayOnly", default: false)
 
     // MARK: Layout
     /// Swaps the opened notch for a smaller, player-only layout: no tab

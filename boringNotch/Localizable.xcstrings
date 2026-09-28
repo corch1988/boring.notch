@@ -666,12 +666,6 @@
         }
       }
     },
-    "Display for live activity" : {
-
-    },
-    "Follow the notch" : {
-
-    },
     "actions: %@" : {
       "localizations" : {
         "pt-BR" : {
@@ -7790,6 +7784,9 @@
         }
       }
     },
+    "Display for live activity" : {
+
+    },
     "Download" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -10172,6 +10169,9 @@
           }
         }
       }
+    },
+    "Follow the notch" : {
+
     },
     "Format:" : {
 
@@ -24862,6 +24862,9 @@
           }
         }
       }
+    },
+    "Show only on active display" : {
+
     },
     "Show OSD in open notch" : {
       "localizations" : {

@@ -272,6 +272,11 @@ final class BoringViewCoordinator: ObservableObject {
             if let targetUUID = targetScreenUUID {
                 // Update specific screen
                 updateState(for: targetUUID)
+            } else if Defaults[.osdOnActiveDisplayOnly],
+                      let activeUUID = NSScreen.main?.displayUUID {
+                // ponytail: NSScreen.main is the keyboard-focus display, which is
+                // what macOS itself treats as active for its own OSD.
+                updateState(for: activeUUID)
             } else {
                 // Update ALL connected screens + the main screen as fallback
                 // We use known screen UUIDs from NSScreen
