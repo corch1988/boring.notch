@@ -350,6 +350,13 @@ struct AudioOutputPicker: View {
             }
         }
         .frame(minWidth: 220)
+        // The popover is its own window outside the notch's hover area, so
+        // moving onto it reads as "pointer left" and would close the notch
+        // underneath it. Hold the notch open for as long as the list shows;
+        // ending the interaction posts sharingDidFinish, which closes the
+        // notch then if the pointer has already left.
+        .onAppear { SharingStateManager.shared.beginInteraction() }
+        .onDisappear { SharingStateManager.shared.endInteraction() }
     }
 }
 
